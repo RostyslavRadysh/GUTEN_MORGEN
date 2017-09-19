@@ -1,10 +1,10 @@
 <?php
 	require_once 'header.php';
 	
-	$name = "Guest";
-	if(isset($_SESSION['Login']))
+	$name = "guest";
+	if(isset($_SESSION['login']))
 	{
-		$name = $_SESSION['Login'];
+		$name = $_SESSION['login'];
 	}
 	
 	echo <<<_END
@@ -16,7 +16,7 @@
 _END;
 	
 	echo <<<_END
-	<h1>HELLO $name<h5>
+	<h1>Hello $name. What's up?<h5>
 _END;
 	
 	echo <<<_END

@@ -11,7 +11,7 @@
 		$result = queryMysql("SELECT * FROM Profiles 
 							  WHERE Login='$login'");
 
-		if ($result->num_rows != 0)
+		if ($result->num_rows == 0)
 		{
 			queryMysql("INSERT INTO Profiles VALUES('$login', '$password')");
 		}
@@ -27,14 +27,14 @@ _END;
 	
 	echo <<<_END
 	<div>
-		<form method='post' action='signup.php'>
+		<form method='post' action='signup.php' onSubmit='return validate(this)'>
 			<label>Login</label>
-				<input type='text' name='login' value='$login'>
+				<input type='text' name='login'>
 
 			<label>Password</label>
-				<input type='text' name='password' value='$password'>
+				<input type='text' name='password'>
 	  
-			<input type='submit' value='submit'>
+			<input type='submit'>
 		</form>
 	</div>
 _END;
